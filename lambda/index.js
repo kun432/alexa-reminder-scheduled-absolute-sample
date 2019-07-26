@@ -77,7 +77,8 @@ const ReminderIntentHandler = {
         try {
             const client = handlerInput.serviceClientFactory.getReminderManagementServiceClient();
             
-            const remindTime = moment({ hours: hh, minutes: mm}).add(1, 'minutes'); // 繰り返しの場合、未来であれば時間はいつでも良い
+            const remindTime = moment({ hours: hh, minutes: mm}).add(1, 'days'); // 繰り返しの場合、未来であれば良い。日付だけ未来にして重要なのは時刻のみ
+
             const timeFormat = 'YYYY-MM-DDTHH:mm:ss.SSS';
             console.log('REQUEST_TIME: ' + moment().format(timeFormat));
             console.log('REMIND_TIME: ' + remindTime.format(timeFormat));
