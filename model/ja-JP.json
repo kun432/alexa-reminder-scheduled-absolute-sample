@@ -1,0 +1,82 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "リマインダーテスト",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "ReminderIntent",
+                    "slots": [
+                        {
+                            "name": "hhmm",
+                            "type": "AMAZON.TIME"
+                        }
+                    ],
+                    "samples": [
+                        "{hhmm} にリマインド",
+                        "{hhmm} に教えて",
+                        "{hhmm} にリマインダーをセット",
+                        "{hhmm} "
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "ReminderIntent",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1453450411944"
+                    },
+                    "slots": [
+                        {
+                            "name": "hhmm",
+                            "type": "AMAZON.TIME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Confirm.Slot.249806477545.25099310102",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "{sec} 秒後にリマインドしてもよいですか？"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1453450411944",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "毎日 {hhmm} にリマインダーをセットして良いですか？"
+                    }
+                ]
+            }
+        ]
+    }
+}
